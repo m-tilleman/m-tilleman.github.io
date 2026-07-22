@@ -57,12 +57,31 @@
       width: 480px; height: 480px;
       background: var(--accent);
       top: -160px; left: -120px;
+      animation: drift1 22s ease-in-out infinite alternate;
     }
     body::after {
       width: 420px; height: 420px;
       background: var(--accent-2);
       bottom: -180px; right: -120px;
       opacity: 0.22;
+      animation: drift2 28s ease-in-out infinite alternate;
+    }
+
+    /* Slow drifting motion for the background glows */
+    @keyframes drift1 {
+      0%   { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(140px, 90px) scale(1.15); }
+      100% { transform: translate(60px, 220px) scale(1.05); }
+    }
+    @keyframes drift2 {
+      0%   { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(-120px, -80px) scale(1.1); }
+      100% { transform: translate(-200px, -40px) scale(0.95); }
+    }
+
+    /* Respect users who prefer reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      body::before, body::after { animation: none; }
     }
 
     a { color: inherit; text-decoration: none; }
@@ -177,7 +196,7 @@
 
   <!-- ============================================================
        NAV  —  add links here as you add sections later
-       ============================================================ -->
+       =========================================================== -->
   <nav>
     <a class="brand" href="#top">MT<span>.</span></a>
     <div class="links">
@@ -207,7 +226,7 @@
 
     <!-- ============================================================
          ABOUT  —  EDIT the paragraphs and the quick-facts panel
-         ============================================================ -->
+         =========================================================== -->
     <section class="about" id="about">
       <div class="wrap">
         <div class="section-label">About</div>
@@ -216,20 +235,20 @@
             <h2>Hi, I'm Michael.</h2>
             <p>I'm a <strong>designer and creative</strong> who cares about how things look, feel, and work. I like turning fuzzy ideas into clear, polished experiences — and I'm always tinkering with something new.</p>
             <p>This site is a work in progress that I'm building out over time. Consider it a living space where I'll share projects, experiments, and the things I'm learning along the way.</p>
-            <p>When I'm not designing, you'll find me <em>[add a personal detail here — hobbies, interests, what makes you, you]</em>.</p>
+            <p>When I'm not designing, you'll find me doing other awesome stuff.</p>
           </div>
           <aside class="facts">
             <h3>Quick facts</h3>
             <div class="fact"><span>Focus</span><span>Design &amp; Creative</span></div>
             <div class="fact"><span>Location</span><span>Orlando, FL</span></div>
             <div class="fact"><span>Status</span><span>Open to work</span></div>
-            <div class="fact"><span>Tools</span><span>— add yours —</span></div>
+            <div class="fact"><span>Tools</span><span>Computer &amp; My Brain</span></div>
           </aside>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
+    <!-- ===========================================================
          FUTURE SECTIONS  —  scaffold ready for when we build these.
          Just uncomment and fill in.
 
@@ -254,7 +273,7 @@
 
   <!-- ============================================================
        CONTACT / FOOTER  —  EDIT your real links below
-       ============================================================ -->
+       =========================================================== -->
   <footer id="contact">
     <div class="wrap">
       <h2>Let's build something.</h2>
